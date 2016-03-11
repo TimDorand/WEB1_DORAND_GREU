@@ -2,5 +2,5 @@
 @extends('layouts.app')
 
 @section('content')
-    Index
+    Liste des articles
 @endsection
