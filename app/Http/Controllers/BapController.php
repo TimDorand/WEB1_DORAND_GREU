@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Post;
 use App\Http\Requests;
+use App\Models\Post;
 
-class ArticleController extends Controller
+class BapController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        // articles
-        $posts = Post::all();
-        dd($posts);
-        return 'Liste des articles';
+        $baps = Post::all();
+        return view('bap.index')->with(compact('baps'));
     }
 
     /**
@@ -29,11 +27,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $post = new Post;
-        $post->title = 'Un autre article';
-        $post->description = 'Une autre description';
-        $post->save();
-        return 'Formulaire';
+        return view('bap.create');
     }
 
     /**
@@ -44,7 +38,20 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bap = new Post;
+        $bap->name          = $request->name;
+        $bap->username      = $request->username;
+        $bap->type          = $request->type;
+        $bap->typeother      = $request->typeother;
+        $bap->descriptif      = $request->descriptif;
+        $bap->context      = $request->context;
+        $bap->objectif      = $request->objectif;
+        $bap->contrainte      = $request->contrainte;
+        $bap->description   = $request->description;
+        $bap->save();
+        return redirect()
+            ->route('bap.show', $bap->id)
+            ->with(compact('bao'));
     }
 
     /**
@@ -55,15 +62,8 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
-        $post = Post::find($id);
-
-        if($post){
-            return $post->title.'<br/>'.$post->description;
-        }else{
-            return 'N\'existe pas :(';
-
-        }
+        $bap = Post::find($id);
+        return view('bap.show')->with(compact('bap'));
     }
 
     /**

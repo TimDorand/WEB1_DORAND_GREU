@@ -13,7 +13,6 @@
 
 
 
-Route::resource('/articles','ArticleController');
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +25,16 @@ Route::resource('/articles','ArticleController');
 |
 */
 Route::group(['middleware' => 'web'], function () {
+
+    Route::resource('/articles','PostController');
+
+    Route::resource('/bap', 'BapController');
+
+
     Route::auth();
-    Route::get('/', function () {
+    /*Route::get('/', function () {
         return view('welcome');
-    });
+    });*/
 
     Route::get('/home', 'HomeController@index');
 
