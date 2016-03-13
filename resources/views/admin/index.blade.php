@@ -5,6 +5,8 @@
     @if(Session::has('erreur'))
         <h1>{{Session::get('erreur')}}</h1>
     @endif
+
+    {{-- Accès à l'administration si connecté en tant qu'admin--}}
     @if(Auth::check() && Auth::user()->admin == 1)
 
     <div class="container">

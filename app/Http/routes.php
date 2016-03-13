@@ -35,9 +35,13 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', function () {
         return view('home');
     });
-    Route::resource('/admin', 'AdminController');
 
 
     Route::get('/home', 'HomeController@index');
-
+    Route::resource('/admin','AdminController');
 });
+
+
+Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+    return "this page requires that you be logged in and an Admin";
+}]);

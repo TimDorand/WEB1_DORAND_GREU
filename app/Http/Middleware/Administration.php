@@ -15,10 +15,17 @@ class Administration
      */
     public function handle($request, Closure $next)
     {
-        /*if(Auth::check() && Auth::user()->admin == 0){
-            return redirect('bap.index');
-        }*/
-        return $next($request);
+        /*if ($request->user()->id != 1) {
+            return redirect('/');
+        }
+        return $next($request);*/
+
+        if ( Auth::check() && Auth::user()->isAdmin() )
+        {
+            return $next($request);
+        }
+
+        return redirect('home');
 
 
     }

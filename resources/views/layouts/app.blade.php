@@ -53,6 +53,9 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     <li><a href="{{ url('/admin') }}">Administration</a></li>
+                    @if (Auth::guest())
+                    <li><a href="{{ url('/profil') }}">Mon profil</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
