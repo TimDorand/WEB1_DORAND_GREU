@@ -25,22 +25,19 @@
 |
 */
 Route::group(['middleware' => 'web'], function () {
+    Route::auth();
 
     Route::resource('/posts','PostController');
 
     Route::resource('/bap', 'BapController');
 
 
-    Route::auth();
     Route::get('/', function () {
         return view('home');
     });
-    Route::get('/admin', 'AdminController')->middleware('admin');
+    Route::resource('/admin', 'AdminController');
 
 
     Route::get('/home', 'HomeController@index');
 
-    Route::get('/index', function(){
-        return view('posts.show');
-    });
 });

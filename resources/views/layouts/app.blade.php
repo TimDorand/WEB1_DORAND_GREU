@@ -18,6 +18,10 @@
     <style>
         body {
             font-family: 'Lato';
+            font-weight:300;
+        }
+        h1{
+            font-weight:200;
         }
 
         .fa-btn {
@@ -48,6 +52,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/admin') }}">Administration</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
