@@ -5,10 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Models\Post;
+use App\Models\BapModel;
 
 class BapController extends Controller
 {
+
+    public function __construct()
+    {
+        // Le middleware de l'admin est actif sur toutes les actions
+        $this->middleware('admin');
+
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -26,7 +26,7 @@
 */
 Route::group(['middleware' => 'web'], function () {
 
-    Route::resource('/articles','PostController');
+    Route::resource('/posts','PostController');
 
     Route::resource('/bap', 'BapController');
 
@@ -35,6 +35,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', function () {
         return view('home');
     });
+    Route::get('/admin', 'AdminController')->middleware('admin');
+
 
     Route::get('/home', 'HomeController@index');
 
