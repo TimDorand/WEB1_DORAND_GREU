@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-use App\Models\Post;
 use App\Models\User;
-=======
-use Illuminate\Foundation\Auth\User;
->>>>>>> 8bf4bd44c1ea24320aa249961db710525420d893
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\BapModel;

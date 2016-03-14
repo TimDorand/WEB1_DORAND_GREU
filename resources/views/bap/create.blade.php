@@ -31,16 +31,12 @@
 
                             {{--<div class="form-group">
                                 <label for="">Nom du projet</label>
-<<<<<<< HEAD
+
                                 <input name="name" type="text" class="form-control" placeholder="Ex: Site vitrine d'un restaurant">
                             </div>--}}
-=======
-                                {!! Form::text('name', null, [
-                                         'class' => 'form-control',
-                                         'placeholder' => 'Ex: Site vitrine d\'un restaurant'
-                                     ]) !!}
+
                             </div>
->>>>>>> 8bf4bd44c1ea24320aa249961db710525420d893
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
 
