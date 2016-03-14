@@ -13,7 +13,7 @@ class BapController extends Controller
     public function __construct()
     {
         // Le middleware de l'admin est actif sur toutes les actions
-        $this->middleware('admin', ['except'=>['create', 'edit']]);
+        $this->middleware('admin', ['except'=>['create']]);
 
     }
 
@@ -35,8 +35,8 @@ class BapController extends Controller
      */
     public function create()
     {
-        $baps = User::all()->lists('id', 'name', 'username', 'type',
-            'typeother','descriptif', 'context', 'objectif', 'contrainte');
+        $baps = Bapmodel::all()->lists('name', 'username', 'type',
+            'descriptif', 'context', 'objectif', 'contrainte');
 
        return view('bap.create')->with(compact('baps'));
    }
