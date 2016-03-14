@@ -48,9 +48,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{ route('post.index') }}">Articles</a></li>
+                    <li><a href="{{ route('posts.index') }}">Articles</a></li>
                     @if (Auth::check())
-                        <li><a href="{{ route('post.create') }}">Rédiger un article</a></li>
+                        <li><a href="{{ route('posts.create') }}">Rédiger un article</a></li>
+                        <li><a href="{{ route('bap.create') }}">BAP</a></li>
                         @endif
                 </ul>
 

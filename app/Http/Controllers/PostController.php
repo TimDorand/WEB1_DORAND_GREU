@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-
-use App\Post;
+use App\Models\Post;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -16,10 +17,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        // articles
         $posts = Post::all();
-        dd($posts);
-        return 'Index des articles';
+
+        return view('posts.index')->with(compact('posts'));
     }
 
     /**
@@ -29,11 +29,15 @@ class PostController extends Controller
      */
     public function create()
     {
-        $post = new Post;
+        /*$post = new Post;
         $post->title = 'Un autre article';
         $post->description = 'Une autre description';
         $post->save();
-        return 'Formulaire';
+        return 'Formulaire';*/
+
+        $users = User::all()->lists('name', 'id');
+
+        return view('posts.create')->with(compact('users'));
     }
 
     /**
@@ -44,7 +48,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post;
+
+        $post->user_id  = Auth::user()->id;
+        $post->title    = $request->title;
+        $post->content  = $request->content;
+
+        $post->save();
+
+        return redirect()
+            ->route('posts.show', $post->id)
+            ->with(compact('post'));
     }
 
     /**
@@ -65,7 +79,16 @@ class PostController extends Controller
 
         }*/
 
-        return view('articles.show', ['id' => $id]);
+        try{
+            $post = Post::findOrFail($id);
+            return view('posts.show')->with(compact('post'));
+
+        }catch(\Exception $e){
+            return redirect()->route('posts.index')->with(['erreur' => 'Oopssss']);
+
+        }
+
+        return view('posts.show', ['id' => $id]);
     }
 
     /**
@@ -76,7 +99,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return view('articles.edit')->with(compact($id));
+        /*return view('articles.edit')->with(compact($id));*/
+        $post   = Post::find($id);
+        $users  = User::all()->lists('name', 'id')  ;
+
+        return view('posts.edit')->with(compact('post', 'users'));
     }
 
     /**
@@ -88,7 +115,15 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->title   = $request->title;
+        $post->content = $request->content;
+        /*$post->user_id = $request->user_id;*/
+
+        $post->save();
+
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**
@@ -99,6 +134,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+
+
+        return redirect()->route('posts.index');
     }
 }

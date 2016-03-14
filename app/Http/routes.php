@@ -26,7 +26,7 @@
 */
 Route::group(['middleware' => 'web'], function () {
 
-    Route::resource('/posts','PostController');
+    Route::resource('/posts','PostController'); /*FAUT CHANGER CA*/
 
     Route::resource('/bap', 'BapController');
 
