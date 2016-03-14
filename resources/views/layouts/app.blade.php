@@ -44,20 +44,25 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    IIM Plateformegit de BAP
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{ route('posts.index') }}">Articles</a></li>
-                    @if (Auth::check())
+                    <li><a href="{{ url('/home') }}">Accueil</a></li>
+                    @if (Auth::check() && Auth::user()->admin == 1)
                         <li><a href="{{ route('posts.create') }}">Rédiger un article</a></li>
                         <li><a href="{{ route('bap.create') }}">BAP</a></li>
-                        @endif
-                    <li><a href="{{ url('/admin') }}">Administration</a></li>
+                        <li><a href="{{ url('/admin') }}">Administration</a></li>
+
+                    @endif
+                    @if (Auth::check())
+                        <li><a href="{{ route('bap.create') }}">Soumettre un projet</a></li>
+                    @endif
+
+                    <li><a href="{{ route('posts.index') }}">Blog</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
