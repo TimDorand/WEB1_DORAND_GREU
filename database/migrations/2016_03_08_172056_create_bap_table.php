@@ -14,7 +14,7 @@ class CreateBapTable extends Migration
     {
         Schema::create('bap_models', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('validate');
+            $table->string('validate')->default(0);
             $table->string('name');
             $table->string('username');
             $table->string('type');

@@ -136,6 +136,10 @@
                                           'placeholder' => 'Les contraintes du projet'
                                       ]) !!}
 
+                                <span style="display:none;">
+                                    {!! Form::number('validate','0') !!}}
+                                </span>
+
                                 {!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
 
 

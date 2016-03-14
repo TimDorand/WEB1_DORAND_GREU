@@ -13,7 +13,7 @@ class BapController extends Controller
     public function __construct()
     {
         // Le middleware de l'admin est actif sur toutes les actions
-        $this->middleware('admin', ['except'=>['create']]);
+        $this->middleware('admin', ['except'=>['create','index']]);
 
     }
 
@@ -60,7 +60,6 @@ class BapController extends Controller
         $bap->context       = $request->context;
         $bap->objectif      = $request->objectif;
         $bap->contrainte    = $request->contrainte;
-        $bap->description   = $request->description;
         $bap->save();
 
         return redirect()
