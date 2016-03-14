@@ -19,10 +19,20 @@
 
     <div class="form-group">
         <label>Type du projet</label>
-        {!! Form::select('animal', array(
-    'Cats' => array('leopard' => 'Leopard'),
-    'Dogs' => array('spaniel' => 'Spaniel'),
-));!!}
+        {!! Form::select('type', array(
+        'site_internet' => 'Site Internet',
+        '3d' =>'3D',
+        '2d' =>'2D',
+        'multimedia' =>'Installation Mutltimédia',
+        'jeu_video' =>'Jeu Vidéo',
+        'dvd' =>'DVD',
+        'print' =>'Print',
+        'cd-rom' =>'CD-ROM',
+        'evenement' =>'Evenement',
+        'appel_doffre' =>'Appel d\'offre',
+        'business_plan' =>'Business Plan'
+        ))
+!!}
     </div>
 
     <div class="form-group">

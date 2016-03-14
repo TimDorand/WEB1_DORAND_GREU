@@ -42,37 +42,37 @@
                                 <label>Type de projet</label>
                                 <div class="checkbox">
                                     <label>
-                                        <input name="type" type="checkbox"> Site internet
+                                        <input name="type" value="site_internet" type="checkbox"> Site internet
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> 3D
+                                        <input name="type" type="checkbox" value="3d"> 3D
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Animation 2D
+                                        <input name="type" type="checkbox" value="2d"> Animation 2D
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Installation Multimédia
+                                        <input name="type" type="checkbox" value="mutlimedia"> Installation Multimédia
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Jeu Vidéo
+                                        <input name="type" type="checkbox" value="jeu_video"> Jeu Vidéo
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> DVD
+                                        <input name="type" type="checkbox" value="dvd"> DVD
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Print
+                                        <input name="type" type="checkbox" value="print"> Print
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> CD-ROM
+                                        <input name="type" type="checkbox" value="cd-rom"> CD-ROM
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Evenement
+                                        <input name="type" type="checkbox" value="evenement"> Evenement
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Appel d'offre
+                                        <input name="type" type="checkbox" value="appel_doffre"> Appel d'offre
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Business plan
+                                        <input name="type" type="checkbox" value="business_plan"> Business plan
                                     </label>
                                     <br/>
                                     <br/>
