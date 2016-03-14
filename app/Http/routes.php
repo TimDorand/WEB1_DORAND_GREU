@@ -27,7 +27,7 @@
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::resource('/posts','PostController'); /*FAUT CHANGER CA*/
+    Route::resource('/posts','PostController');
 
     Route::resource('/bap', 'BapController');
 
@@ -39,5 +39,7 @@ Route::group(['middleware' => 'web'], function () {
 
 
     Route::get('/home', 'HomeController@index');
+
+
 
 });

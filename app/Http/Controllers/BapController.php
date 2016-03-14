@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Models\BapModel;
 
@@ -35,15 +36,18 @@ class BapController extends Controller
      */
     public function create()
     {
-        return view('bap.create');
-    }
+        $baps = User::all()->lists('id', 'name', 'username', 'type',
+            'typeother','descriptif', 'context', 'objectif', 'contrainte');
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+       return view('bap.create')->with(compact('baps'));
+   }
+
+   /**
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
         $bap = new Post;
@@ -57,9 +61,10 @@ class BapController extends Controller
         $bap->contrainte      = $request->contrainte;
         $bap->description   = $request->description;
         $bap->save();
+
         return redirect()
             ->route('bap.show', $bap->id)
-            ->with(compact('bao'));
+            ->with(compact('bap'));
     }
 
     /**

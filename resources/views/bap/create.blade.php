@@ -20,9 +20,16 @@
                             <? echo Form::text('username'); ?>
 
                             <div class="form-group">
+                                {!! Form::text('name', null, [
+                                'class' => 'form-control',
+                                'placeholder' => 'Ex: Site vitrine d\'un restaurant'
+                                ]) !!}
+                            </div>
+
+                            {{--<div class="form-group">
                                 <label for="">Nom du projet</label>
                                 <input name="name" type="text" class="form-control" placeholder="Ex: Site vitrine d'un restaurant">
-                            </div>
+                            </div>--}}
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
                                 <input name="username" type="text" class="form-control" placeholder="Votre nom">
