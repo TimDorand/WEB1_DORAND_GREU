@@ -13,7 +13,7 @@ class BapController extends Controller
     public function __construct()
     {
         // Le middleware de l'admin est actif sur toutes les actions
-        $this->middleware('admin');
+        $this->middleware('admin', ['except'=>['create', 'edit']]);
 
     }
 
@@ -24,8 +24,8 @@ class BapController extends Controller
      */
     public function index()
     {
-        $baps = Post::all();
-        return view('bap.index')->with(compact('baps'));
+        $baps = Bapmodel::all();
+        return view('admin.index')->with(compact('baps'));
     }
 
     /**
@@ -46,7 +46,7 @@ class BapController extends Controller
      */
     public function store(Request $request)
     {
-        $bap = new Post;
+        $bap = new Bapmodel;
         $bap->name          = $request->name;
         $bap->username      = $request->username;
         $bap->type          = $request->type;
@@ -70,7 +70,7 @@ class BapController extends Controller
      */
     public function show($id)
     {
-        $bap = Post::find($id);
+        $bap = Bapmodel::find($id);
         return view('bap.show')->with(compact('bap'));
     }
 

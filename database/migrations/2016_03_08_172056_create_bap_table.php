@@ -12,7 +12,7 @@ class CreateBapTable extends Migration
      */
     public function up()
     {
-        Schema::create('bap', function (Blueprint $table) {
+        Schema::create('bap_modelsgit', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('username');
