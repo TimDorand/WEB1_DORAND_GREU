@@ -26,7 +26,7 @@
 */
 Route::group(['middleware' => 'web'], function () {
 
-    Route::resource('/articles','PostController');
+    Route::resource('/posts','PostController');
 
     Route::resource('/bap', 'BapController');
 
