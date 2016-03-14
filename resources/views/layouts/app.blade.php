@@ -18,6 +18,10 @@
     <style>
         body {
             font-family: 'Lato';
+            font-weight:300;
+        }
+        h1{
+            font-weight:200;
         }
 
         .fa-btn {
@@ -48,11 +52,15 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+<<<<<<< HEAD
                     <li><a href="{{ route('posts.index') }}">Articles</a></li>
                     @if (Auth::check())
                         <li><a href="{{ route('posts.create') }}">Rédiger un article</a></li>
                         <li><a href="{{ route('bap.create') }}">BAP</a></li>
                         @endif
+=======
+                    <li><a href="{{ url('/admin') }}">Administration</a></li>
+>>>>>>> a04b6141d22018a052b10953050d6b0f38040562
                 </ul>
 
                 <!-- Right Side Of Navbar -->

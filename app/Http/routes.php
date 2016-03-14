@@ -25,20 +25,23 @@
 |
 */
 Route::group(['middleware' => 'web'], function () {
+    Route::auth();
 
+<<<<<<< HEAD
     Route::resource('/posts','PostController'); /*FAUT CHANGER CA*/
+=======
+    Route::resource('/posts','PostController');
+>>>>>>> a04b6141d22018a052b10953050d6b0f38040562
 
     Route::resource('/bap', 'BapController');
 
 
-    Route::auth();
     Route::get('/', function () {
         return view('home');
     });
+    Route::resource('/admin', 'AdminController');
+
 
     Route::get('/home', 'HomeController@index');
 
-    Route::get('/index', function(){
-        return view('posts.show');
-    });
 });
