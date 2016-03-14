@@ -48,14 +48,16 @@ class BapController extends Controller
     public function store(Request $request)
     {
         $bap = new Bapmodel;
+        $bap->id            = $request->id;
+        $bap->validate      = $request->validate;
         $bap->name          = $request->name;
         $bap->username      = $request->username;
         $bap->type          = $request->type;
-        $bap->typeother      = $request->typeother;
-        $bap->descriptif      = $request->descriptif;
-        $bap->context      = $request->context;
+        $bap->typeother     = $request->typeother;
+        $bap->descriptif    = $request->descriptif;
+        $bap->context       = $request->context;
         $bap->objectif      = $request->objectif;
-        $bap->contrainte      = $request->contrainte;
+        $bap->contrainte    = $request->contrainte;
         $bap->description   = $request->description;
         $bap->save();
         return redirect()
@@ -98,11 +100,16 @@ class BapController extends Controller
     public function update(Request $request, $id)
     {
         $bap = BapModel::find($id);
-        $bap->name   = $request->name;
-        $bap->username   = $request->username;
-        $bap->validate = $request->validate;
-        $bap->descriptif = $request->descriptif;
-        $bap->context = $request->context;
+        $bap->validate      = $request->validate;
+        $bap->name          = $request->name;
+        $bap->username      = $request->username;
+        $bap->type          = $request->type;
+        $bap->typeother     = $request->typeother;
+        $bap->descriptif    = $request->descriptif;
+        $bap->context       = $request->context;
+        $bap->objectif      = $request->objectif;
+        $bap->contrainte    = $request->contrainte;
+        $bap->descriptif     = $request->descriptif;
 //        $bap->user_id = $request->user_id;
         $bap->save();
         return redirect()->route('bap.show', $bap->id);

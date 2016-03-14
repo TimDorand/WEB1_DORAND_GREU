@@ -1,15 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageTitle' => 'Edit de larticle n°'])
 
 @section('content')
 
-test
-    {!! Form::model($bap, ['route' => ['bap.update', $bap->id], 'method' => 'PUT']) !!}
 
-
-
-    {!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
-
-    {!! Form::close() !!}
-
+    @include('partials.posts.form', ['action' => 'edit'])
+    @include('partials.posts.errors')
 
 @endsection
