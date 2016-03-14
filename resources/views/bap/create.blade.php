@@ -14,10 +14,13 @@
                         Le formulaire de soumission
                     </div>
                     <div class="panel-body">
-                        <form action="{{route('bap.store')}}" method="POST">
-                            {{csrf_field()}}
 
-                            <? echo Form::text('username'); ?>
+                        {{-- Utilisation du Form::
+                             TODO: 1. Faire la même chose pour les autres inputs 2.Validation dans BapController function store avec Requests\ValidateBapRequest
+
+
+                                --}}
+                        {!! Form::open(['route' => 'bap.store', 'method' => 'POST']) !!}
 
                             <div class="form-group">
                                 {!! Form::text('name', null, [
@@ -28,47 +31,60 @@
 
                             {{--<div class="form-group">
                                 <label for="">Nom du projet</label>
+<<<<<<< HEAD
                                 <input name="name" type="text" class="form-control" placeholder="Ex: Site vitrine d'un restaurant">
                             </div>--}}
+=======
+                                {!! Form::text('name', null, [
+                                         'class' => 'form-control',
+                                         'placeholder' => 'Ex: Site vitrine d\'un restaurant'
+                                     ]) !!}
+                            </div>
+>>>>>>> 8bf4bd44c1ea24320aa249961db710525420d893
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
-                                <input name="username" type="text" class="form-control" placeholder="Votre nom">
+
+                                {!! Form::text('username', null, [
+                                          'class' => 'form-control',
+                                          'placeholder' => 'Votre nom'
+                                      ]) !!}
                             </div>
+
                             <div class="form-group">
                                 <label>Type de projet</label>
                                 <div class="checkbox">
                                     <label>
-                                        <input name="type" type="checkbox"> Site internet
+                                        <input name="type" value="site_internet" type="checkbox"> Site internet
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> 3D
+                                        <input name="type" type="checkbox" value="3d"> 3D
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Animation 2D
+                                        <input name="type" type="checkbox" value="2d"> Animation 2D
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Installation Multimédia
+                                        <input name="type" type="checkbox" value="mutlimedia"> Installation Multimédia
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Jeu Vidéo
+                                        <input name="type" type="checkbox" value="jeu_video"> Jeu Vidéo
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> DVD
+                                        <input name="type" type="checkbox" value="dvd"> DVD
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Print
+                                        <input name="type" type="checkbox" value="print"> Print
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> CD-ROM
+                                        <input name="type" type="checkbox" value="cd-rom"> CD-ROM
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Evenement
+                                        <input name="type" type="checkbox" value="evenement"> Evenement
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Appel d'offre
+                                        <input name="type" type="checkbox" value="appel_doffre"> Appel d'offre
                                     </label>
                                     <label>
-                                        <input name="type" type="checkbox"> Business plan
+                                        <input name="type" type="checkbox" value="business_plan"> Business plan
                                     </label>
                                     <br/>
                                     <br/>
@@ -97,7 +113,9 @@
 
 
                             <button type="submit" class="btn btn-default">Envoyer</button>
-                        </form>
+                        {{--</form>--}}
+                            {!! Form::close() !!}
+
                     </div>
                 </div>
             </div>

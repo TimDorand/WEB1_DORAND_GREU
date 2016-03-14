@@ -24,6 +24,9 @@
 | kernel and includes session state, CSRF protection, and more.
 |
 */
+
+
+
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
@@ -31,12 +34,12 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('/bap', 'BapController');
 
-
     Route::get('/', function () {
-        return view('home');
+        return view('welcome');
     });
-    Route::resource('/admin', 'AdminController');
 
+
+    Route::resource('/admin', 'BapController');
 
     Route::get('/home', 'HomeController@index');
 

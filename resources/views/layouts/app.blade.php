@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Plateforme BAP - IIM</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -44,7 +44,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    IIM Plateformegit de BAP
+                    IIM Plateforme de BAP
                 </a>
             </div>
 
@@ -53,12 +53,10 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Accueil</a></li>
                     @if (Auth::check() && Auth::user()->admin == 1)
+                        <li><a href="{{ route('admin.index') }}">Administration</a></li>
                         <li><a href="{{ route('posts.create') }}">Rédiger un article</a></li>
-                        <li><a href="{{ route('bap.create') }}">BAP</a></li>
-                        <li><a href="{{ url('/admin') }}">Administration</a></li>
 
-                    @endif
-                    @if (Auth::check())
+                    @elseif (Auth::check())
                         <li><a href="{{ route('bap.create') }}">Soumettre un projet</a></li>
                     @endif
 
