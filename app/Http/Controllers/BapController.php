@@ -60,7 +60,7 @@ class BapController extends Controller
         $bap->save();
         return redirect()
             ->route('bap.show', $bap->id)
-            ->with(compact('bao'));
+            ->with(compact('bap'));
     }
 
     /**
