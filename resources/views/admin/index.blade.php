@@ -23,7 +23,6 @@
     @else
     <div class="container">
         <h1>Vous n'êtes pas admin, vous n'avez pas accès à cette partie du site</h1>
-        <?php  header( "refresh:2;url='../public'" );
         ?>
     </div>
     @endif

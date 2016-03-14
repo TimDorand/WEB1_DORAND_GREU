@@ -14,19 +14,30 @@
                         Le formulaire de soumission
                     </div>
                     <div class="panel-body">
-                        <form action="{{route('bap.store')}}" method="POST">
-                            {{csrf_field()}}
 
-                            <? echo Form::text('username'); ?>
+                        {{-- Utilisation du Form::
+                             TODO: 1. Faire la même chose pour les autres inputs 2.Validation dans BapController function store avec Requests\ValidateBapRequest
+
+
+                                --}}
+                        {!! Form::open(['route' => 'bap.store', 'method' => 'POST']) !!}
 
                             <div class="form-group">
                                 <label for="">Nom du projet</label>
-                                <input name="name" type="text" class="form-control" placeholder="Ex: Site vitrine d'un restaurant">
+                                {!! Form::text('name', null, [
+                                         'class' => 'form-control',
+                                         'placeholder' => 'Ex: Site vitrine d\'un restaurant'
+                                     ]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
-                                <input name="username" type="text" class="form-control" placeholder="Votre nom">
+
+                                {!! Form::text('username', null, [
+                                          'class' => 'form-control',
+                                          'placeholder' => 'Votre nom'
+                                      ]) !!}
                             </div>
+
                             <div class="form-group">
                                 <label>Type de projet</label>
                                 <div class="checkbox">
@@ -90,7 +101,9 @@
 
 
                             <button type="submit" class="btn btn-default">Envoyer</button>
-                        </form>
+                        {{--</form>--}}
+                            {!! Form::close() !!}
+
                     </div>
                 </div>
             </div>

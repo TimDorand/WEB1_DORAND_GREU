@@ -14,8 +14,28 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'admin',
+        'passwords' => 'admin',
+    ],
+    'guards' => [
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+        ]
+    ],
+    'providers' => [
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+    ],
+    'passwords' => [
+        'admin' => [
+            'provider' => 'admin',
+            'email' => 'auth.emails.password',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
     ],
 
     /*
