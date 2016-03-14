@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -82,7 +83,9 @@ class BapController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bap   = BapModel::find($id);
+        $users  = User::all()->lists('name', 'id')  ;
+        return view('bap.edit')->with(compact('bap', 'users'));
     }
 
     /**
@@ -94,7 +97,15 @@ class BapController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $bap = BapModel::find($id);
+        $bap->name   = $request->name;
+        $bap->username   = $request->username;
+        $bap->validate = $request->validate;
+        $bap->descriptif = $request->descriptif;
+        $bap->context = $request->context;
+//        $bap->user_id = $request->user_id;
+        $bap->save();
+        return redirect()->route('bap.show', $bap->id);
     }
 
     /**

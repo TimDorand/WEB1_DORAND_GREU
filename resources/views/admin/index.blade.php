@@ -19,43 +19,49 @@
 
                     {{-- Boucle pour afficher tous les --}}
                     @foreach($baps as $bap)
-                    <div class="thumbnail col-md-3" style="margin-right:20px; min-height:200px">
+                        <div class="thumbnail col-md-3" style="margin-right:20px; min-height:200px">
 
-                        <div class="description" style="font-size:1.4em;">
-                            {{$bap->id}}. {{$bap->name}}
-                        </div>
-                        <p>{{$bap->username}}</p>
-                        <p>Type de projet {{$bap->type}}</p>
-                        {{--<b>Descriptif</b>
-                        <p>{{$bap->descriptif}}</p>
-                        <b>Contexte</b>
-                        <p>{{$bap->context}}</p>
-                        <b>Objectif</b>
-                        <p>{{$bap->objectif}}</p>
-                        <b>Contrainte</b>
-                        <p>{{$bap->contrainte}}</p>--}}
+                            <a href="{{route('bap.show', $bap->id)}}">
+                                <div class="description" style="font-size:1.4em;">
+                                {{$bap->id}}. {{$bap->name}}
+                                </div>
+                            </a>
+                            <a href="{{$bap->username}}}}"><p>{{$bap->username}}</p></a>
+                            <p>Type de projet {{$bap->type}}</p>
 
-                        <a href="profile/{{$bap->username}}">
-                            <button class="btn btn-default">Voir le client</button>
-                        </a>
-                        <a href="{{route('bap.show', $bap->id)}}">
-                            <button class="btn btn-default">Voir le projet</button>
-                        </a>
+                            {{--Bouton pour valider le projet, appelle la fonction edit du BapController pour modifier la valeur dans la bdd--}}
 
-
-
-                        @if(Auth::check() && Auth::user()->id == $bap->user_id)
-                            <a href="{{route('bap.edit', $bap->id)}}">
-                                <button class="btn btn-warning">Editer l'article</button>
+                            <a href="{{ route('bap.edit', ['id' => $bap->id]) }}" class="btn btn-success btn-line btn-rect">
+                                <i class="icon-pencil icon-white"></i> Valider
                             </a>
 
-                            <form action="{{route('bap.destroy', $bap->id)}}" method="POST" style="display: inline;;">
-                                {{csrf_field()}}
-                                <input type="hidden" name="_method" value="DELETE">
-                                <button class="btn btn-danger">Supprimer l'article</button>
-                            </form>
-                        @endif
-                    </div>
+
+                            <br/>
+                            <br/>
+
+                            {{--Affiche si le projet est validé ou pas--}}
+                            <div class="text-center"
+                            @if($bap->validate == 1)
+                                style="position:absolute; bottom:0; color:green;"><i class="fa fa-check"></i> Projet validé
+                            @else
+                                  style="position: absolute; bottom: 0; color:red;"><i class="fa fa-close"></i> Projet non validé
+                            @endif
+                            </div>
+
+
+
+                            @if(Auth::check() && Auth::user()->id == $bap->user_id)
+                                <a href="{{route('bap.edit', $bap->id)}}">
+                                    <button class="btn btn-warning">Editer l'article</button>
+                                </a>
+
+                                <form action="{{route('bap.destroy', $bap->id)}}" method="POST" style="display: inline;;">
+                                    {{csrf_field()}}
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button class="btn btn-danger">Supprimer l'article</button>
+                                </form>
+                            @endif
+                        </div>
                         @endforeach
                 </div>
             </div>

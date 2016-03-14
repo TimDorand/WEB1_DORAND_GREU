@@ -12,8 +12,9 @@ class CreateBapTable extends Migration
      */
     public function up()
     {
-        Schema::create('bap_modelsgit', function (Blueprint $table) {
+        Schema::create('bap_models', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('validate');
             $table->string('name');
             $table->string('username');
             $table->boolean('type');

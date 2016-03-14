@@ -15,13 +15,11 @@ class Administration
      */
     public function handle($request, Closure $next)
     {
-        if($request->user()->admin != 1){
+        if( $request->user()->admin != 1){
             return response('Vous n\'êtes pas autorisé',401);
 
             }
             return $next($request);
-
-
 
     }
 }
