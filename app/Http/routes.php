@@ -39,7 +39,7 @@ Route::group(['middleware' => 'web'], function () {
     });
 
 
-    Route::resource('/admin', 'BapController');
+    Route::resource('/admin', 'AdminController');
 
     Route::get('/home', 'HomeController@index');
 

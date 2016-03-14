@@ -51,7 +51,7 @@
         ]) !!}
     </div>
 
-    {{--<div class="form-group">
+    <div class="form-group">
         <label>Projet validé</label>
         @if($bap->validate == 0)
        {!! Form::checkbox('validate', '1') !!}
@@ -59,7 +59,7 @@
        {!! Form::checkbox('validate', 'smallInteger', true) !!}
         @endif
 
-    </div>--}}
+    </div>
 
     {!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
 

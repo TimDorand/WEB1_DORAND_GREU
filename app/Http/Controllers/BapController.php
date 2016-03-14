@@ -6,16 +6,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\BapModel;
+use Illuminate\Support\Facades\Auth;
 
 class BapController extends Controller
 {
 
-    public function __construct()
-    {
-        // Le middleware de l'admin est actif sur toutes les actions
-        $this->middleware('admin', ['except'=>['create','index']]);
 
-    }
 
     /**
      * Display a listing of the resource.
@@ -25,7 +21,7 @@ class BapController extends Controller
     public function index()
     {
         $baps = Bapmodel::all();
-        return view('admin.index')->with(compact('baps'));
+        return view('bap.index')->with(compact('baps'));
     }
 
     /**
@@ -35,10 +31,10 @@ class BapController extends Controller
      */
     public function create()
     {
-        $baps = Bapmodel::all()->lists('name', 'username', 'type',
+        $users = User::all()->lists('name', 'username', 'type',
             'descriptif', 'context', 'objectif', 'contrainte');
 
-       return view('bap.create')->with(compact('baps'));
+       return view('bap.create')->with(compact('users'));
    }
 
    /**
@@ -50,6 +46,8 @@ class BapController extends Controller
     public function store(Request $request)
     {
         $bap = new Bapmodel;
+        $bap->user_id  = Auth::user()->id;
+
         $bap->id            = $request->id;
         $bap->validate      = $request->validate;
         $bap->name          = $request->name;
@@ -89,8 +87,7 @@ class BapController extends Controller
     {
         $bap   = BapModel::find($id);
         $users  = User::all()->lists('name', 'id')  ;
-        return view('bap.edit')->with(compact('bap', 'users'));
-    }
+        return view('bap.edit')->with(compact('bap', 'users'));    }
 
     /**
      * Update the specified resource in storage.

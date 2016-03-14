@@ -21,7 +21,7 @@
                     @foreach($baps as $bap)
                         <div class="thumbnail col-md-3" style="margin-right:20px; min-height:200px">
 
-                            <a href="{{route('bap.show', $bap->id)}}">
+                            <a href="{{route('admin.show', $bap->id)}}">
                                 <div class="description" style="font-size:1.4em;">
                                 {{$bap->id}}. {{$bap->name}}
                                 </div>
@@ -31,7 +31,7 @@
 
                             {{--Bouton pour valider le projet, appelle la fonction edit du BapController pour modifier la valeur dans la bdd--}}
 
-                            <a href="{{ route('bap.edit', $bap->id)}}" class="btn btn-success btn-line btn-rect">
+                            <a href="{{ route('admin.edit', $bap->id)}}" class="btn btn-success btn-line btn-rect">
                                 <i class="fa fa-pencil"></i> Editer
                             </a>
 
@@ -46,22 +46,8 @@
                                   style="position: absolute; bottom: 0; color:red;"><i class="fa fa-close"></i> Projet non validé
                             @endif
                             </div>
-
-
-
-                            @if(Auth::check() && Auth::user()->id == $bap->user_id)
-                                <a href="{{route('bap.edit', $bap->id)}}">
-                                    <button class="btn btn-warning">Editer l'article</button>
-                                </a>
-
-                                <form action="{{route('bap.destroy', $bap->id)}}" method="POST" style="display: inline;;">
-                                    {{csrf_field()}}
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button class="btn btn-danger">Supprimer l'article</button>
-                                </form>
-                            @endif
                         </div>
-                        @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>
