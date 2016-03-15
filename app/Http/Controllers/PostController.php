@@ -90,7 +90,7 @@ class PostController extends Controller
 
         }
 
-        return view('posts.show', ['id' => $id]);
+        /*return view('posts.show', ['id' => $id]);*/
     }
 
     /**

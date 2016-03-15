@@ -26,6 +26,7 @@
 {!! Form::close() !!}
 
     @else
-    <p>Vous n'avez pas accès à cette page</p>
+
+    @include('partials.posts.401')
 
 @endif
