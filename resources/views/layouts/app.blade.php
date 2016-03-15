@@ -55,11 +55,12 @@
                     @if (Auth::check() && Auth::user()->admin == 1)
                         <li><a href="{{ route('admin.index') }}">Administration</a></li>
                         <li><a href="{{ route('posts.create') }}">Rédiger un article</a></li>
+                        <li><a href="{{ route('user.index') }}">Les utilisateurs</a></li>
+
 
                     @elseif (Auth::check())
                         <li><a href="{{ route('bap.create') }}">Soumettre un projet</a></li>
                         <li><a href="{{ route('bap.index') }}">Mon projet</a></li>
-                        {{--<li><a href="{{ route('user.index') }}">Mon compte</a></li>--}}
                     @endif
 
                     <li><a href="{{ route('posts.index') }}">Blog</a></li>
@@ -79,6 +80,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ route('user.index') }}"><i class="fa fa-btn fa-user"></i>{{ Auth::user()->name }} </a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

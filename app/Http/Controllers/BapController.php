@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class BapController extends Controller
 {
-
-
-
     /**
      * Display a listing of the resource.
      *

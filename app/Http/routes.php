@@ -34,6 +34,8 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('/bap', 'BapController');
 
+    Route::resource('/user', 'UserController');
+
     Route::get('/', function () {
         return view('welcome');
     });
