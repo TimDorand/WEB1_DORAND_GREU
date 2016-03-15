@@ -28,7 +28,7 @@ class BapController extends Controller
      */
     public function create()
     {
-        $users = User::all()->lists('name', 'username', 'type',
+        $users = User::all()->lists('name', 'type',
             'descriptif', 'context', 'objectif', 'contrainte');
 
        return view('bap.create')->with(compact('users'));
@@ -40,15 +40,15 @@ class BapController extends Controller
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
-    public function store(Request $request)
+    public function store(Requests\BapProjetRequest $request)
     {
         $bap = new Bapmodel;
-        $bap->user_id  = Auth::user()->id;
 
+        $bap->user_id       = Auth::user()->id;
+        $bap->username      = Auth::user()->name;
         $bap->id            = $request->id;
         $bap->validate      = $request->validate;
         $bap->name          = $request->name;
-        $bap->username      = $request->username;
         $bap->type          = $request->type;
         $bap->typeother     = $request->typeother;
         $bap->descriptif    = $request->descriptif;
@@ -70,7 +70,17 @@ class BapController extends Controller
      */
     public function show($id)
     {
-        $bap = Bapmodel::find($id);
+        try{
+
+            $bap = BapModel::findOrFail($id);
+            return view('bap.show')->with(compact('bap'));
+
+
+        }catch(\Exception $e){
+
+            return redirect()->route('bap.index')->with(['erreur'=>'Whoooooops']);
+
+        }
         return view('bap.show')->with(compact('bap'));
     }
 
