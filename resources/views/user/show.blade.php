@@ -1,17 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(Auth::check() && Auth::user()->id == $bap->user_id)
+    @if(Auth::check() && Auth::user()->id == $user->id)
 
         <div class="container">
         Ta bap
-        <h1>{{$bap->name}}</h1>
-        <p> Auteur: {{ $bap->username }}</p>
-        <p><b>Descriptif: </b>{{$bap->descriptif}}</p>
-        <p><b>Context: </b>{{$bap->context}}</p>
+        <h1>{{$user->name}}</h1>
+        <p> Auteur: {{ $user->username }}</p>
+        <p><b>Descriptif: </b>{{$user->descriptif}}</p>
+        <p><b>Context: </b>{{$user->context}}</p>
     </div>
+    @elseif(Auth::check() && Auth::user()->admin == 1)
+        <div class="container">
+            Ta bap
+            <h1>{{$user->name}}</h1>
+            <p> Auteur: {{ $user->username }}</p>
+            <p><b>Descriptif: </b>{{$user->descriptif}}</p>
+            <p><b>Context: </b>{{$user->context}}</p>
+        </div>
+
     @else
-        y'a pas de post à ton user_id naaa nananaaa
+        @include('partials.posts.401')
 
     @endif
+
+
 @endsection

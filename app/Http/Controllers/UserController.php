@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+        public function __construct()
+        {
+            //Admin à tous les droits, il peut tout voir
+//            $this->middleware('admin')->except('index', 'edit');
+        }
+
     /**
      * Display a listing of the resource.
      *
@@ -91,7 +98,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        $user->id            = $request->id;
         $user->name          = $request->name;
         $user->admin          = $request->admin;
         $user->email          = $request->email;
