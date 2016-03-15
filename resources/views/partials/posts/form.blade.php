@@ -1,11 +1,15 @@
-@if($action == 'edit')
-    {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT']) !!}
-@else
-    {!! Form::open(['route' => 'posts.store', 'method' => 'POST']) !!}
-@endif
+@if (Auth::check() && Auth::user()->admin == 1)
+
+    @if($action == 'edit')
+        {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT']) !!}
+    @else
+        {!! Form::open(['route' => 'posts.store', 'method' => 'POST']) !!}
+    @endif
 <div class="form-group">
     {!! Form::select('user_id', $users, null, ['class' => 'form-control']) !!}
 </div>
+
+
 
 <div class="form-group">
     {!! Form::text('title', null, [
@@ -20,3 +24,8 @@
 
 {!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
 {!! Form::close() !!}
+
+    @else
+    <p>Vous n'avez pas accès à cette page</p>
+
+@endif
