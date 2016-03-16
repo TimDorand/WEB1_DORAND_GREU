@@ -61,6 +61,7 @@
                     @elseif (Auth::check())
                         <li><a href="{{ route('bap.create') }}">Soumettre un projet</a></li>
                         <li><a href="{{ route('bap.index') }}">Mon projet</a></li>
+                        <li><a href="{{ route('contact.create') }}">Contactez-nous</a></li>
                     @endif
 
                     <li><a href="{{ route('posts.index') }}">Blog</a></li>
