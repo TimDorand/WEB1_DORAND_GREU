@@ -29,11 +29,7 @@
                                 ]) !!}
                             </div>
 
-                            {{--<div class="form-group">
-                                <label for="">Nom du projet</label>
 
-                                <input name="name" type="text" class="form-control" placeholder="Ex: Site vitrine d'un restaurant">
-                            </div>--}}
 
                             </div>
 
@@ -50,40 +46,7 @@
 
                             <div class="form-group">
                                 <label>Type de projet</label>
-                                {{--<div class="checkbox">--}}
-                                    {{--<label>
-                                        <input name="type" value="site_internet" type="checkbox"> Site internet
-                                    </label>
-                                    <label>
-                                        <input name="type" type="checkbox" value="3d"> 3D
-                                    </label>
-                                    <label>
-                                        <input name="type" type="checkbox" value="2d"> Animation 2D
-                                    </label>
-                                    <label>
-                                        <input name="type" type="checkbox" value="mutlimedia"> Installation Multimédia
-                                    </label>
-                                    <label>
-                                        <input name="type" type="checkbox" value="jeu_video"> Jeu Vidéo
-                                    </label>
-                                    <label>
-                                        <input name="type" type="checkbox" value="dvd"> DVD
-                                    </label>
-                                    <label>
-                                        <input name="type" type="checkbox" value="print"> Print
-                                    </label>
-                                    <label>
-                                        <input name="type" type="checkbox" value="cd-rom"> CD-ROM
-                                    </label>
-                                    <label>
-                                        <input name="type" type="checkbox" value="evenement"> Evenement
-                                    </label>
-                                    <label>
-                                        <input name="type" type="checkbox" value="appel_doffre"> Appel d'offre
-                                    </label>
-                                    <label>
-                                        <input name="type" type="checkbox" value="business_plan"> Business plan
-                                    </label>--}}
+
 
                                     {!! Form::select('type', array(
                                     'site_internet' => 'Site Internet',
@@ -102,15 +65,12 @@
 
                                     <br/>
                                     <br/>
-                                   {{-- <label>
-                                        <input name="type" type="checkbox"> Autres
-                                    </label>--}}
+
                                     {!! Form::text('typeother', null, [
                                           'class' => 'form-control',
                                           'placeholder' => 'Autres'
                                       ]) !!}
 
-                               {{-- </div>--}}
 
                                 <label for="">Descriptif du projet</label>
                                 {!! Form::text('descriptif', null, [
@@ -144,35 +104,6 @@
 
 
 
-
-
-
-
-
-                            {{--<div class="form-group">
-
-                                <input name="descriptif" type="text" class="form-control" placeholder="Détails du projets">
-                            </div>--}}
-
-                            {{--<div class="form-group">
-
-                                <input name="context" type="text" class="form-control" placeholder="Précision sur l'environnement du projet">
-                            </div>--}}
-
-                            {{--<div class="form-group">
-                                <label for="">Vos objetifs</label>
-                                <input name="objectif" type="text" class="form-control" placeholder="Précision sur l'environnement du projet">
-                            </div>--}}
-                           {{-- <div class="form-group">
-                                <label for="">Contraintes particulières</label>
-                                <input type="text" class="form-control" placeholder="Précision sur l'environnement du projet">
-                            </div>
---}}
-
-                            {{--<button type="submit" class="btn btn-default">Envoyer</button>--}}
-
-
-                        {{--</form>--}}
                             {!! Form::close() !!}
 
                     </div>
