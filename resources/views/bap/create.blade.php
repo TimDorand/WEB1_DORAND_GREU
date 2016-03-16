@@ -30,23 +30,26 @@
                             </div>
 
 
+<<<<<<< HEAD
+=======
+                    {{--  <div class="form-group">
+                         <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
+>>>>>>> origin
 
+                        {!! Form::text('username', null, [
+                                   'class' => 'form-control',
+                                   'placeholder' => 'Votre nom'
+                               ]) !!}
                             </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
-
-                                {!! Form::text('username', null, [
-                                          'class' => 'form-control',
-                                          'placeholder' => 'Votre nom'
-                                      ]) !!}
-                            </div>
-
+                        --}}
 
 
                             <div class="form-group">
                                 <label>Type de projet</label>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin
 
                                     {!! Form::select('type', array(
                                     'site_internet' => 'Site Internet',
@@ -60,17 +63,28 @@
                                     'evenement' =>'Evenement',
                                     'appel_doffre' =>'Appel d\'offre',
                                     'business_plan' =>'Business Plan'
-                                    ))
+                                    ),[
+                                    'class' => 'form-control', 'style'=>'display:inline;'])
                                     !!}
 
+<<<<<<< HEAD
                                     <br/>
                                     <br/>
 
+=======
+                                   {{-- <label>
+                                        <input name="type" type="checkbox"> Autres
+                                    </label>--}}
+>>>>>>> origin
                                     {!! Form::text('typeother', null, [
-                                          'class' => 'form-control',
+                                          'class' => ' ',
                                           'placeholder' => 'Autres'
                                       ]) !!}
 
+<<<<<<< HEAD
+=======
+                                </div>
+>>>>>>> origin
 
                                 <label for="">Descriptif du projet</label>
                                 {!! Form::text('descriptif', null, [
@@ -99,13 +113,29 @@
                                 <span style="display:none;">
                                     {!! Form::number('validate','0') !!}}
                                 </span>
+                              <br/>
 
+<<<<<<< HEAD
                                 {!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
 
 
 
                             {!! Form::close() !!}
+=======
+                                {!! Form::submit('Envoyer', ['class' => ' form-control']) !!}
 
+                            {!! Form::close() !!}
+
+                        @if($errors)
+                            <br>
+                            <div class="alert-warning">
+                                @foreach($errors->all() as $error)
+                                    <p>{{$error}}</p>
+                                @endforeach
+                            </div>
+>>>>>>> origin
+
+                        @endif
                     </div>
                 </div>
             </div>

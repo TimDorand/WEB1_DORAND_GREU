@@ -19,7 +19,7 @@
 
                     {{-- Boucle pour afficher tous les --}}
                     @foreach($baps as $bap)
-                        <div class="thumbnail col-md-3" style="margin-right:20px; min-height:200px">
+                        <div class="thumbnail col-md-3 col-md-offset-0" style="min-height:200px">
 
                             <a href="{{route('admin.show', $bap->id)}}">
                                 <div class="description" style="font-size:1.4em;">
