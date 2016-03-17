@@ -7,7 +7,7 @@
 
                 <div class="jumbotron">
                     <h1> Bienvenue
-                    @if(Auth::check())
+                        @if(Auth::check())
                         <b style="font-weight:300">{{Auth::user()->name}}</b> sur la plateforme de soumission de BAP !</h1>
                     @else
                             sur la plateforme de soumission de BAP !</h1>
