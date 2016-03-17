@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Comment;
-/*use App\Http\Requests;*/
+use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
-use App\Http\Requests;
 
 class CommentController extends Controller
 {
@@ -45,16 +44,17 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $comment = new Comment;
+        $comments = new Comment;
 
-        $comment->user_id  = Auth::user()->id;
-        $comment->id    = $request->id;
-        $comment->comment  = $request->comment;
+        $comments->user_id  = Auth::user()->id;
+        $comments->id    = $request->id;
+        $comments->comments  = $request->comments;
+        $comments->post_id  = $request->post->id;
 
-        $comment->save();
+        $comments->save();
 
         return redirect()
-            ->route('comments.show', $comment->id)
+            ->route('comments.show', $comments->id)
             ->with(compact('comments'));
     }
 
@@ -67,8 +67,8 @@ class CommentController extends Controller
     public function show($id)
     {
         try{
-            $comment = Post::findOrFail($id);
-            return view('comments.show')->with(compact('comment'));
+            $comments = Post::findOrFail($id);
+            return view('comments.show')->with(compact('comments'));
 
         }catch(\Exception $e){
             return redirect()->route('comments.index')->with(['erreur' => 'Oopssss']);

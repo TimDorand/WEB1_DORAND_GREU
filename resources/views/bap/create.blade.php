@@ -15,11 +15,7 @@
                     </div>
                     <div class="panel-body">
 
-                        {{-- Utilisation du Form::
-                             TODO: 1. Faire la même chose pour les autres inputs 2.Validation dans BapController function store avec Requests\ValidateBapRequest
 
-
-                                --}}
                         {!! Form::open(['route' => 'bap.store', 'method' => 'POST']) !!}
 
                             <div class="form-group">
@@ -30,11 +26,8 @@
                             </div>
 
 
-<<<<<<< HEAD
-=======
                     {{--  <div class="form-group">
                          <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
->>>>>>> origin
 
                         {!! Form::text('username', null, [
                                    'class' => 'form-control',
@@ -46,10 +39,7 @@
 
                             <div class="form-group">
                                 <label>Type de projet</label>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin
 
                                     {!! Form::select('type', array(
                                     'site_internet' => 'Site Internet',
@@ -67,24 +57,18 @@
                                     'class' => 'form-control', 'style'=>'display:inline;'])
                                     !!}
 
-<<<<<<< HEAD
                                     <br/>
                                     <br/>
 
-=======
                                    {{-- <label>
                                         <input name="type" type="checkbox"> Autres
                                     </label>--}}
->>>>>>> origin
                                     {!! Form::text('typeother', null, [
                                           'class' => ' ',
                                           'placeholder' => 'Autres'
                                       ]) !!}
 
-<<<<<<< HEAD
-=======
                                 </div>
->>>>>>> origin
 
                                 <label for="">Descriptif du projet</label>
                                 {!! Form::text('descriptif', null, [
@@ -115,13 +99,6 @@
                                 </span>
                               <br/>
 
-<<<<<<< HEAD
-                                {!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
-
-
-
-                            {!! Form::close() !!}
-=======
                                 {!! Form::submit('Envoyer', ['class' => ' form-control']) !!}
 
                             {!! Form::close() !!}
@@ -133,7 +110,6 @@
                                     <p>{{$error}}</p>
                                 @endforeach
                             </div>
->>>>>>> origin
 
                         @endif
                     </div>

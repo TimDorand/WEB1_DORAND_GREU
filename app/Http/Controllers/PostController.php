@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Post;
@@ -71,26 +72,11 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        /*//
-        $post = Post::find($id);
+//            $post = Post::find($id);
+            $post = Post::where('id','=',$id)->get()->first();
 
-        if($post){
-            return $post->title.'<br/>'.$post->description;
-        }else{
-            return 'N\'existe pas :(';
-
-        }*/
-
-        try{
-            $post = Post::findOrFail($id);
-            return view('posts.show')->with(compact('post'));
-
-        }catch(\Exception $e){
-            return redirect()->route('posts.index')->with(['erreur' => 'Oopssss']);
-
-        }
-
-//        return view('posts.show', ['id' => $id]);
+            $comments = $post->comments;
+            return view('posts.show')->with(compact('post','comments'));
     }
 
     /**

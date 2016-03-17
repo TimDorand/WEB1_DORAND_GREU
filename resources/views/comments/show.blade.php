@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h2>{{$comment->id}}</h2>
-    <p>{{$comment->comment}}</p>
+    <h2>{{$comments->id}}</h2>
+    <p>{{$comments->comment}}</p>
 
 @endsection
