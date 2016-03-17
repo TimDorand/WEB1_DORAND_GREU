@@ -36,6 +36,8 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('/user', 'UserController');
 
+    Route::get('/user/projects', 'UserController@showProjects');
+
     Route::get('/', function () {
         return view('welcome');
     });
