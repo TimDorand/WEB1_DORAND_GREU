@@ -30,8 +30,6 @@
                             </div>
 
 
-<<<<<<< HEAD
-=======
                     {{--  <div class="form-group">
                          <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
 >>>>>>> origin
@@ -46,10 +44,6 @@
 
                             <div class="form-group">
                                 <label>Type de projet</label>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin
 
                                     {!! Form::select('type', array(
                                     'site_internet' => 'Site Internet',
@@ -67,24 +61,22 @@
                                     'class' => 'form-control', 'style'=>'display:inline;'])
                                     !!}
 
-<<<<<<< HEAD
                                     <br/>
                                     <br/>
 
-=======
+
                                    {{-- <label>
                                         <input name="type" type="checkbox"> Autres
                                     </label>--}}
->>>>>>> origin
+
                                     {!! Form::text('typeother', null, [
                                           'class' => ' ',
                                           'placeholder' => 'Autres'
                                       ]) !!}
 
-<<<<<<< HEAD
-=======
+
                                 </div>
->>>>>>> origin
+
 
                                 <label for="">Descriptif du projet</label>
                                 {!! Form::text('descriptif', null, [
@@ -115,13 +107,13 @@
                                 </span>
                               <br/>
 
-<<<<<<< HEAD
+
                                 {!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
 
 
 
                             {!! Form::close() !!}
-=======
+
                                 {!! Form::submit('Envoyer', ['class' => ' form-control']) !!}
 
                             {!! Form::close() !!}
@@ -133,7 +125,7 @@
                                     <p>{{$error}}</p>
                                 @endforeach
                             </div>
->>>>>>> origin
+
 
                         @endif
                     </div>
