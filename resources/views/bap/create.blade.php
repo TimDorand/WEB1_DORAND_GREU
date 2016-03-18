@@ -27,28 +27,11 @@
                                 ]) !!}
                             </div>
 
-<<<<<<< HEAD
 
-                    {{--  <div class="form-group">
-                         <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
->>>>>>> origin
-
-                        {!! Form::text('username', null, [
-                                   'class' => 'form-control',
-                                   'placeholder' => 'Votre nom'
-                               ]) !!}
-                            </div>
-                        --}}
-
-
-                            <div class="form-group">
-                                <label>Type de projet</label>
-
-=======
                             <div class="form-group">
                                 <label>Type de projet</label>
                                 {{--Select des différents type de projets--}}
->>>>>>> 502def5ff8df5f886f3443cb0359d52c9e69ca4f
+
                                     {!! Form::select('type', array(
                                     'site_internet' => 'Site Internet',
                                     '3d' =>'3D',
@@ -68,26 +51,22 @@
                                     <br/>
                                     <br/>
 
-<<<<<<< HEAD
+
 
                                    {{-- <label>
                                         <input name="type" type="checkbox"> Autres
                                     </label>--}}
 
-=======
->>>>>>> 502def5ff8df5f886f3443cb0359d52c9e69ca4f
                                     {!! Form::text('typeother', null, [
                                           'class' => ' ',
                                           'placeholder' => 'Autres'
                                       ]) !!}
 
-<<<<<<< HEAD
 
                                 </div>
 
-=======
+
                                 </div>
->>>>>>> 502def5ff8df5f886f3443cb0359d52c9e69ca4f
 
                                 <label for="">Descriptif du projet</label>
                                 {!! Form::text('descriptif', null, [
@@ -118,7 +97,6 @@
                                 </span>
                               <br/>
 
-<<<<<<< HEAD
 
                                 {!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
 
@@ -126,11 +104,7 @@
 
                             {!! Form::close() !!}
 
-=======
->>>>>>> 502def5ff8df5f886f3443cb0359d52c9e69ca4f
-                                {!! Form::submit('Envoyer', ['class' => ' form-control']) !!}
 
-                            {!! Form::close() !!}
                             {{--fin du formulaire--}}
 
                         @if($errors)
@@ -140,10 +114,6 @@
                                     <p>{{$error}}</p>
                                 @endforeach
                             </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 502def5ff8df5f886f3443cb0359d52c9e69ca4f
 
                         @endif
                     </div>

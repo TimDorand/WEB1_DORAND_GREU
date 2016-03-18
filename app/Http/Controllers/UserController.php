@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 
 class UserController extends Controller
@@ -97,13 +99,45 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        Edition du profil, possibilité de mettre à jour le mot de passe, cripté par bcrypt
         $user = User::find($id);
         $user->name          = $request->name;
         $user->admin          = $request->admin;
         $user->email          = $request->email;
-        $user->password          = $request->password;
+        $user->password       = bcrypt($request->password);
         $user->save();
         return redirect()->route('user.show', $user->id);
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        $rules = [
+            'mypassword' => 'required',
+            'password' => 'required|confirmed|min:6|max:18'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()){
+        return redirect('user/password')->withErrors($validator);
+        }else{
+            if (Hash::check($request->mypassword, Auth::user()->password)){
+                $user = new User();
+                $user->where('email','=',Auth::user()->email)
+                    ->update(['password'=>bcrypt($request->password)]);
+                return redirect('user')->with('status','Mot de pass changé !');
+            }else{
+                 return redirect('user/password')->with('message','Incorrects');
+            }
+        }
+
+
+        $user = User::findOrFail($id);
+
+        // Validate the new password length...
+
+        $user->fill([
+            'password' => Hash::make($request->newPassword)
+        ])->save();
     }
 
     /**

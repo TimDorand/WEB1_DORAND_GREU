@@ -42,6 +42,7 @@ class BapController extends Controller
     */
     public function store(Requests\BapProjetRequest $request)
     {
+//        Récupération de tout les données de la bdd après la Validation de BapProjetRequest
         $bap = new Bapmodel;
 
         $bap->user_id       = Auth::user()->id;

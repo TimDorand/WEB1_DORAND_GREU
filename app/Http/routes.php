@@ -34,12 +34,19 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('/bap', 'BapController');
 
-    Route::resource('/user', 'UserController');
+//    User -> accès au user password
 
-    Route::get('/user/projects', 'UserController@showProjects');
+    Route::resource('/user', 'UserController');
+    /*
+    Route::get('/user','UserController@user');
+    Route::get('/user/profile','UserController@profile');
+    Route::post('/user/updateprofile','UserController@updateProfile');
+    Route::get('/user/password','UserController@password');
+    Route::post('/user/updatepassword','UserController@password');*/
+
 
     Route::resource('/comments', 'CommentController');
-    Route::resource('/posts/comments', 'CommentController');
+//    Route::resource('/posts/comments', 'CommentController');
 
     Route::resource('/contact', 'ContactController');
 

@@ -4,6 +4,8 @@
     @if(Session::has('erreur'))
         <h1> {{Session::get('erreur')}} </h1>
     @endif
+
+    {{--Display des derniers posts--}}
 <div class="container">
     @foreach($posts as $post)
         <h3>{{$post->title}}</h3>
