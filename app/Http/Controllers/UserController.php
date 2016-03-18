@@ -99,6 +99,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        Edition du profil, possibilité de mettre à jour le mot de passe, cripté par bcrypt
         $user = User::find($id);
         $user->name          = $request->name;
         $user->admin          = $request->admin;

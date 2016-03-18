@@ -10,6 +10,7 @@
             {{--<p><b>Mot de passe </b>{!! Form::text('password', null ,['class'=>'form-control'])!!}</p>--}}
             <p><b>Création le </b>{!! Form::text('created_at', null ,['class'=>'form-control'])!!}</p>
             <p><b>Mis à jour le </b>{!! Form::text('updated_at', null ,['class'=>'form-control'])!!}</p>
+            <p><b>Nouveau mot de passe </b>{!! Form::password('password', null ,['class'=>'form-control'])!!}</p>
 
 
 

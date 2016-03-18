@@ -10,6 +10,7 @@
 
         <h4 class="panel panel-heading">commentaires</h4>
 
+{{-- Affichages de commentaires affilié au post--}}
         <div class=" panel-body">
         @foreach($comments as $commentaire)
 
