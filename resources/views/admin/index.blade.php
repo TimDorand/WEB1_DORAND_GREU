@@ -5,7 +5,7 @@
     @if(Session::has('erreur'))
         <h1>{{Session::get('erreur')}}</h1>
     @endif
-
+{{--Page administration--}}
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
 
-                    {{-- Boucle pour afficher tous les --}}
+                    {{-- Boucle pour afficher TOUS les projets--}}
                     @foreach($baps as $bap)
                         <div class="thumbnail col-md-3 col-md-offset-0" style="min-height:200px">
 

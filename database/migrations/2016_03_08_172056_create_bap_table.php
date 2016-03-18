@@ -28,11 +28,7 @@ class CreateBapTable extends Migration
             $table->integer('user_id')->unsigned();
         });
 
-        /*Schema::table('bap_models', function(Blueprint $table){
-            $table->foreign('baps_id')->references('id')->on('baps');
-            $table->foreign('user_id')->references('id')->on('users');
 
-        });*/
     }
 
     /**

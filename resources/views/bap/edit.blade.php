@@ -51,6 +51,23 @@
         ]) !!}
     </div>
 
+    <div class="form-group">
+        <label>Objectif du projet</label>
+        {!! Form::text('objectif', null, [
+            'class' => 'form-control',
+            'placeholder' => 'Objectif'
+        ]) !!}
+    </div>
+
+    <div class="form-group">
+        <label>Contrainte du projet</label>
+        {!! Form::text('contrainte', null, [
+            'class' => 'form-control',
+            'placeholder' => 'Contrainte'
+        ]) !!}
+    </div>
+
+
     {{--<div class="form-group">
         <label>Projet validé</label>
         @if($bap->validate == 0)

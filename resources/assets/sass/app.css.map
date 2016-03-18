@@ -1,7 +1,16 @@
 {
 "version": 3,
+<<<<<<< HEAD
 "mappings": "AAEA,UAAU;EACR,UAAU,EAAE,gBAAgB",
+=======
+<<<<<<< HEAD
+"mappings": "",
+"sources": [],
+=======
+"mappings": "AAEA,IAAI;EACF,UAAU,EAAE,KAAK",
+>>>>>>> 502def5ff8df5f886f3443cb0359d52c9e69ca4f
 "sources": ["app.scss"],
+>>>>>>> c9605bdcd4b0865a8a5cf598385e9d8876634cdb
 "names": [],
 "file": "app.css"
 }

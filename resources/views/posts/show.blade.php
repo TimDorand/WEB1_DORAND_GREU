@@ -2,50 +2,45 @@
 
 @section('content')
     {{--<h2>{{$post->name}} <br> Auteur: {{ $post->username }} </h2>--}}
-    <h2>{{$post->title}}</h2>
-    <p>{{$post->content}}</p>
-
-    {{--@foreach($comments as $comment)
-        <p><strong>{{ $comment->user->name }}</strong> <br>
-            {{ $comment->comment }}</p>
-        @if(Auth::check()
-        && (Auth::user()->id == $comment->user_id
-        || Auth::user()->admin)
-        )
-            <a class="btn btn-xs btn-success" href="{{ route('comments.edit', $comment->id) }}">Éditer</a>
-
-            {!! Form::model($comment, array(
-            'route' => array('comments.destroy', $comment->id),
-            'method' => 'DELETE')) !!}
-            {!! Form::submit('Supprimer', ['class' => 'btn btn-xs btn-danger pull-right']) !!}
-            {!! Form::close() !!}
-        @endif
-        <hr>
-    @endforeach--}}
-
-    {{--@foreach($comments as $comment)
-        <a href="{{route('comments.show', $comment->id)}}">
-            <button>Voir l'article</button>
-        </a>
+    <div class="container">
+        <h1>{{$post->title}}</h1>
+        <h2>{{$post->user->name}}</h2>
+        <p>{{$post->content}}</p>
 
 
+        <h4 class="panel panel-heading">commentaires</h4>
 
-        @if(Auth::check() && Auth::user()->id == $comment->user_id)
-            <a href="{{route('comments.edit', $comment->id)}}">
-                <button>Editer l'article</button>
-            </a>
-            <form action="{{route('comments.destroy', $comment->id)}}" method="POST">
-                {{csrf_field()}}
-                <input type="hidden" name="_method" value="DELETE">
-                <button>Supprimer l'article</button>
-            </form>
-        @endif
+        <div class=" panel-body">
+        @foreach($comments as $commentaire)
+
+            {{--{{ $commentaire->user->name }}--}}
+            {{ $commentaire->comment }}
+        @endforeach
+        </div>
+<br/>
+<br/>
+        {!! Form::open(array(
+                'route' => 'comments.store',
+                'method' => 'POST'
+                ))
+        !!}
+        <div class="form-group col-md-10">
+            {!! Form::text('comment', null,
+                ['class' => 'form-control',
+                'placeholder' => 'Ajouter un commentaire'])
+            !!}
+            {!! Form::hidden('post_id', $post->id) !!}
+        </div>
+        <div class="col-md-2">
+            {!! Form::submit('Publier le commentaire', ['class' => 'btn btn-warning pull-right']) !!}
+
+        </div>
+
+        {!! Form::close() !!}
+</div>
 
 
-    @endforeach--}}
-
-
-    @include('comments.show', array($post->id))
-    @include('comments.create', array($post->id))
+    {{--@include('comments.index', array($post->id))--}}
+    {{--@include('comments.create', array($post->id))--}}
 
 @endsection

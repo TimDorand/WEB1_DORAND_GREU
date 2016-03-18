@@ -2,12 +2,10 @@
 
 @section('content')
     <div class="container">
+        {{--Formulaire pour éditer un projet bap--}}
+
     {!! Form::model($bap, ['route' => ['bap.update', $bap->id], 'method' => 'PUT', 'class'=>'form-group']) !!}
 
-    {{--<div class="form-group">
-        <label>Utilisateur</label>
-        {!! Form::select('user_id', $users, null, ['class' => 'form-control']) !!}
-    </div>--}}
 
     <div class="form-group">
         <label>Nom du projet</label>
@@ -50,6 +48,25 @@
             'placeholder' => 'Context'
         ]) !!}
     </div>
+        <div class="form-group">
+            <label>Objectif du projet</label>
+            {!! Form::text('objectif', null, [
+                'class' => 'form-control',
+                'placeholder' => 'Objectif'
+            ]) !!}
+        </div>
+
+        <div class="form-group">
+            <label>Contrainte du projet</label>
+            {!! Form::text('contrainte', null, [
+                'class' => 'form-control',
+                'placeholder' => 'Contrainte'
+            ]) !!}
+        </div>
+
+
+        {{--IF pour valider un projet--}}
+
 
     <div class="form-group">
         <label>Projet validé</label>

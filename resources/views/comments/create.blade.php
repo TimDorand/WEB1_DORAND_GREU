@@ -1,30 +1,10 @@
-{{--
-{!! Form::open(['route' => 'comments.store', 'method' => 'POST']) !!}
-
---}}
-{{--<div class="form-group">
-    {!! Form::select('user_id', $users, null, ['class' => 'form-control']) !!}
-</div>--}}{{--
-
-
-
-
-<h2>{{$post->name}} <br> Auteur: {{ $post->user_id }} </h2>
-<h1>Commentaires</h1>
-
-<div class="form-group">
-    {!! Form::textarea('comment', null, ['class' => 'form-control']) !!}
-</div>
-
-{!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
-{!! Form::close() !!}
---}}
+@extends('layouts.app')
+@section('content')
 
 <div class="panel panel-default">
     <div class="panel-heading">Ajouter un commentaire</div>
     <div class="panel-body">
-        {!!
-            Form::open(array(
+        {!! Form::open(array(
                 'route' => 'comments.store',
                 'method' => 'POST'
                 ))
@@ -32,7 +12,7 @@
 
         <div class="form-group">
             {!! Form::label('comment', 'Commentaire') !!}
-            {!! Form::textarea('comment', '',
+            {!! Form::text('comment', '',
                 ['class' => 'form-control',
                 'placeholder' => 'Mon commentaire'])
             !!}
@@ -44,3 +24,4 @@
     </div>
 </div>
 
+@endsection

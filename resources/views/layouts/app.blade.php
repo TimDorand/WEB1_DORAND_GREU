@@ -26,6 +26,14 @@
 
         .fa-btn {
             margin-right: 6px;
+
+        }
+
+        .navbar{
+            background:white;
+        }
+        .navbar-brand img{
+            margin-top:-15px;
         }
     </style>
 </head>
@@ -44,7 +52,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    IIM Plateforme de BAP
+                    <img src="http://www.iim.fr/ecole-web/wp-content/uploads/2013/06/log_iim_site_web.png" height="50">
                 </a>
             </div>
 
