@@ -6,10 +6,17 @@
         <h1>{{$post->title}}</h1>
         <h2>{{$post->user->name}}</h2>
         <p>{{$post->content}}</p>
+
+
+        <h4 class="panel panel-heading">commentaires</h4>
+
+        <div class=" panel-body">
         @foreach($comments as $commentaire)
+
+            {{--{{ $commentaire->user->name }}--}}
             {{ $commentaire->comment }}
         @endforeach
-
+        </div>
 <br/>
 <br/>
         {!! Form::open(array(
@@ -17,14 +24,14 @@
                 'method' => 'POST'
                 ))
         !!}
-        <div class="form-group col-md-6">
-            {!! Form::text('comment', '',
+        <div class="form-group col-md-10">
+            {!! Form::text('comment', null,
                 ['class' => 'form-control',
                 'placeholder' => 'Ajouter un commentaire'])
             !!}
             {!! Form::hidden('post_id', $post->id) !!}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             {!! Form::submit('Publier le commentaire', ['class' => 'btn btn-warning pull-right']) !!}
 
         </div>

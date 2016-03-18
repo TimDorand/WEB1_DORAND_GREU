@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnPost extends Migration
+class ForeignKeysComments extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,12 @@ class AddColumnPost extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned()->after('id');
+        Schema::table('comments', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('post_id')->unsigned();
+            $table->foreign('post_id')->references('id')->on('posts');
+
         });
     }
 
@@ -25,7 +28,6 @@ class AddColumnPost extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //$table->dropIfExists('user_id');
-        });    }
+        Schema::drop('comments');
+    }
 }

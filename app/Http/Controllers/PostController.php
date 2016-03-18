@@ -72,11 +72,12 @@ class PostController extends Controller
      */
     public function show($id)
     {
-//            $post = Post::find($id);
-            $post = Post::where('id','=',$id)->get()->first();
+            $post = Post::find($id);
+//            $post = Post::where('id','=',$id)->get()->first();
+            $users = User::find($id);
 
             $comments = $post->comments;
-            return view('posts.show')->with(compact('post','comments'));
+            return view('posts.show')->with(compact('post','comments','users'));
     }
 
     /**

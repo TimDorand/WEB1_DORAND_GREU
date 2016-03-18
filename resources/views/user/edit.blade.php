@@ -30,7 +30,7 @@
 
             <p><b>Nom </b>{!! Form::text('name', null ,['class'=>'form-control'])!!}</p>
             <p><b>Email </b>{!! Form::text('email', null ,['class'=>'form-control'])!!}</p>
-            <p><b>Mot de passe </b>{!! Form::text('password', null ,['class'=>'form-control'])!!}</p>
+            {{--<p><b>Mot de passe </b>{!! Form::text('password', null ,['class'=>'form-control'])!!}</p>--}}
             <p><b>Création le </b>{!! Form::text('created_at', null ,['class'=>'form-control'])!!}</p>
             <p><b>Mis à jour le </b>{!! Form::text('updated_at', null ,['class'=>'form-control'])!!}</p>
 

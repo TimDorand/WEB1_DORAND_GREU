@@ -8,13 +8,15 @@
                     <div class="panel-heading">IIM - Bourse au projet</div>
 
                 </div>
+
+                {{--Formulaire bap create--}}
                 <h1>Postez votre demande de Bourse au Projet</h1>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Le formulaire de soumission
                     </div>
                     <div class="panel-body">
-
+                    {{--Début formaulaire--}}
 
                         {!! Form::open(['route' => 'bap.store', 'method' => 'POST']) !!}
 
@@ -25,22 +27,9 @@
                                 ]) !!}
                             </div>
 
-
-                    {{--  <div class="form-group">
-                         <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
-
-                        {!! Form::text('username', null, [
-                                   'class' => 'form-control',
-                                   'placeholder' => 'Votre nom'
-                               ]) !!}
-                            </div>
-                        --}}
-
-
                             <div class="form-group">
                                 <label>Type de projet</label>
-
-
+                                {{--Select des différents type de projets--}}
                                     {!! Form::select('type', array(
                                     'site_internet' => 'Site Internet',
                                     '3d' =>'3D',
@@ -60,9 +49,6 @@
                                     <br/>
                                     <br/>
 
-                                   {{-- <label>
-                                        <input name="type" type="checkbox"> Autres
-                                    </label>--}}
                                     {!! Form::text('typeother', null, [
                                           'class' => ' ',
                                           'placeholder' => 'Autres'
@@ -102,6 +88,7 @@
                                 {!! Form::submit('Envoyer', ['class' => ' form-control']) !!}
 
                             {!! Form::close() !!}
+                            {{--fin du formulaire--}}
 
                         @if($errors)
                             <br>

@@ -31,7 +31,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        $comments = Comment::all()->lists('id', 'comment');
+        $comments = Comment::all()->lists('id','post_id', 'user_id', 'comment');
 
         return view('comments.create')->with(compact('comments'));
     }
@@ -44,18 +44,19 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $comments = new Comment;
 
-        $comments->user_id  = Auth::user()->id;
-        $comments->id    = $request->id;
-        $comments->comments  = $request->comments;
-        $comments->post_id  = $request->post->id;
+        $comment = new Comment;
 
-        $comments->save();
+        $comment->user_id  = Auth::user()->id;
+        $comment->id       = $request->id;
+        $comment->comment     = $request->comment;
+//        $comment->post_id  = $request->post->id;
+
+        $comment->save();
 
         return redirect()
-            ->route('comments.show', $comments->id)
-            ->with(compact('comments'));
+            ->route('post.show', $comment->id)
+            ->with(compact('comment'));
     }
 
     /**
@@ -67,8 +68,9 @@ class CommentController extends Controller
     public function show($id)
     {
         try{
+            $users = User::find($id);
             $comments = Post::findOrFail($id);
-            return view('comments.show')->with(compact('comments'));
+            return view('comments.show')->with(compact('comments','users'));
 
         }catch(\Exception $e){
             return redirect()->route('comments.index')->with(['erreur' => 'Oopssss']);
