@@ -27,7 +27,7 @@
 
                         {{--Bouton pour valider le projet, appelle la fonction edit du BapController pour modifier la valeur dans la bdd--}}
 
-                        <a href="{{ route('bap.edit', $bap->id)}}" class="btn btn-success btn-line btn-rect">
+                        <a href="{{ route('bap.edit', $bap->id)}}" class="btn btn-block btn-line btn-rect">
                             <i class="fa fa-pencil"></i> Editer
                         </a>
 

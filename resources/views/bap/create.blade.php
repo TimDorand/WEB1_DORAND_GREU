@@ -58,7 +58,7 @@
                                     </label>--}}
 
                                     {!! Form::text('typeother', null, [
-                                          'class' => ' ',
+                                          'class' => ' autres ',
                                           'placeholder' => 'Autres'
                                       ]) !!}
 
@@ -66,31 +66,35 @@
                                 </div>
 
 
-                                </div>
+
 
                                 <label for="">Descriptif du projet</label>
                                 {!! Form::text('descriptif', null, [
                                           'class' => 'form-control',
                                           'placeholder' => 'Détails du projet'
                                       ]) !!}
+                                <br>
 
                                 <label for="">Contexte de la demande</label>
                                 {!! Form::text('context', null, [
                                           'class' => 'form-control',
                                           'placeholder' => 'Précision sur l\'environnement du projet'
                                       ]) !!}
+                                <br>
 
                                 <label for="">Vos objetifs</label>
                                 {!! Form::text('objectif', null, [
                                           'class' => 'form-control',
                                           'placeholder' => 'Objectifs du projet'
                                       ]) !!}
+                                <br>
 
                                 <label for="">Contraintes particulières</label>
                                 {!! Form::text('contrainte', null, [
                                           'class' => 'form-control',
                                           'placeholder' => 'Les contraintes du projet'
                                       ]) !!}
+                                <br>
 
                                 <span style="display:none;">
                                     {!! Form::number('validate','0') !!}}

@@ -1,0 +1,55 @@
+body{
+    background-color: rgb(255, 253, 248) !important;
+
+}
+
+.jumbotron{
+    background-color: rgb(255, 214, 165) !important;
+
+
+}
+
+.panel-heading{
+    background-color: rgba(255, 138, 0, 0.25) !important;
+    color:white !important;
+    font-size: 17px;
+
+
+}
+
+.navbar{
+    background-color: rgba(255, 138, 0, 0.49) !important;
+}
+
+.nav a{
+    color: #FFFFFF !important;
+}
+
+.nav a:hover{
+    color: #ee7f00 !important;
+}
+
+.btn{
+    background-color: rgba(255, 138, 0, 0.25) !important;
+    color:white!important;
+}
+
+.panel{
+    background-color: rgb(255, 214, 165) !important;
+}
+
+.thumbnail{
+    background-color: rgb(255, 230, 198) !important;
+}
+
+.form-control{
+    background-color: rgb(255, 238, 217) !important;
+}
+.autres{
+    background-color: rgb(255, 238, 217) !important;
+    border: none !important;
+}
+
+.dropdown-menu a{
+    color:black !important;
+}
